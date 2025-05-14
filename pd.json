@@ -1,0 +1,642 @@
+[
+    {
+        "key": "client-urls",
+        "type": "string"
+    },
+    {
+        "key": "peer-urls",
+        "type": "string"
+    },
+    {
+        "key": "advertise-client-urls",
+        "type": "string"
+    },
+    {
+        "key": "advertise-peer-urls",
+        "type": "string"
+    },
+    {
+        "key": "name",
+        "type": "string"
+    },
+    {
+        "key": "data-dir",
+        "type": "string"
+    },
+    {
+        "key": "initial-cluster",
+        "type": "string"
+    },
+    {
+        "key": "initial-cluster-state",
+        "type": "string"
+    },
+    {
+        "key": "initial-cluster-token",
+        "type": "string"
+    },
+    {
+        "key": "join",
+        "type": "string"
+    },
+    {
+        "key": "lease",
+        "type": "int"
+    },
+    {
+        "key": "log.level",
+        "type": "string"
+    },
+    {
+        "key": "log.format",
+        "type": "string"
+    },
+    {
+        "key": "log.disable-timestamp",
+        "type": "bool"
+    },
+    {
+        "key": "log.file.filename",
+        "type": "string"
+    },
+    {
+        "key": "log.file.max-size",
+        "type": "int"
+    },
+    {
+        "key": "log.file.max-days",
+        "type": "int"
+    },
+    {
+        "key": "log.file.max-backups",
+        "type": "int"
+    },
+    {
+        "key": "log.file.compression",
+        "type": "string"
+    },
+    {
+        "key": "log.development",
+        "type": "bool"
+    },
+    {
+        "key": "log.disable-caller",
+        "type": "bool"
+    },
+    {
+        "key": "log.disable-stacktrace",
+        "type": "bool"
+    },
+    {
+        "key": "log.disable-error-verbose",
+        "type": "bool"
+    },
+    {
+        "key": "log.error-output-path",
+        "type": "string"
+    },
+    {
+        "key": "log.timeout",
+        "type": "int"
+    },
+    {
+        "key": "log-file",
+        "type": "string"
+    },
+    {
+        "key": "log-level",
+        "type": "string"
+    },
+    {
+        "key": "max-concurrent-tso-proxy-streamings",
+        "type": "int"
+    },
+    {
+        "key": "tso-proxy-recv-from-client-timeout",
+        "type": "int"
+    },
+    {
+        "key": "tso-save-interval",
+        "type": "int"
+    },
+    {
+        "key": "tso-update-physical-interval",
+        "type": "int"
+    },
+    {
+        "key": "enable-local-tso",
+        "type": "bool"
+    },
+    {
+        "key": "metric.job",
+        "type": "string"
+    },
+    {
+        "key": "metric.address",
+        "type": "string"
+    },
+    {
+        "key": "metric.interval",
+        "type": "int"
+    },
+    {
+        "key": "schedule.max-snapshot-count",
+        "type": "int"
+    },
+    {
+        "key": "schedule.max-pending-peer-count",
+        "type": "int"
+    },
+    {
+        "key": "schedule.max-merge-region-size",
+        "type": "int"
+    },
+    {
+        "key": "schedule.max-merge-region-keys",
+        "type": "int"
+    },
+    {
+        "key": "schedule.split-merge-interval",
+        "type": "int"
+    },
+    {
+        "key": "schedule.switch-witness-interval",
+        "type": "int"
+    },
+    {
+        "key": "schedule.enable-one-way-merge",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-cross-table-merge",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.patrol-region-interval",
+        "type": "int"
+    },
+    {
+        "key": "schedule.max-store-down-time",
+        "type": "int"
+    },
+    {
+        "key": "schedule.max-store-preparing-time",
+        "type": "int"
+    },
+    {
+        "key": "schedule.leader-schedule-limit",
+        "type": "int"
+    },
+    {
+        "key": "schedule.leader-schedule-policy",
+        "type": "string"
+    },
+    {
+        "key": "schedule.region-schedule-limit",
+        "type": "int"
+    },
+    {
+        "key": "schedule.witness-schedule-limit",
+        "type": "int"
+    },
+    {
+        "key": "schedule.replica-schedule-limit",
+        "type": "int"
+    },
+    {
+        "key": "schedule.merge-schedule-limit",
+        "type": "int"
+    },
+    {
+        "key": "schedule.hot-region-schedule-limit",
+        "type": "int"
+    },
+    {
+        "key": "schedule.hot-region-cache-hits-threshold",
+        "type": "int"
+    },
+    {
+        "key": "schedule.store-balance-rate",
+        "type": "float"
+    },
+    {
+        "key": "schedule.store-limit",
+        "type": "json"
+    },
+    {
+        "key": "schedule.tolerant-size-ratio",
+        "type": "float"
+    },
+    {
+        "key": "schedule.low-space-ratio",
+        "type": "float"
+    },
+    {
+        "key": "schedule.high-space-ratio",
+        "type": "float"
+    },
+    {
+        "key": "schedule.region-score-formula-version",
+        "type": "string"
+    },
+    {
+        "key": "schedule.scheduler-max-waiting-operator",
+        "type": "int"
+    },
+    {
+        "key": "schedule.disable-raft-learner",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.disable-remove-down-replica",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.disable-replace-offline-replica",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.disable-make-up-replica",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.disable-remove-extra-replica",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.disable-location-replacement",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-remove-down-replica",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-replace-offline-replica",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-make-up-replica",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-remove-extra-replica",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-location-replacement",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-debug-metrics",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-joint-consensus",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-tikv-split-region",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-heartbeat-breakdown-metrics",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-heartbeat-concurrent-runner",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.schedulers",
+        "type": "json"
+    },
+    {
+        "key": "schedule.hot-regions-write-interval",
+        "type": "int"
+    },
+    {
+        "key": "schedule.hot-regions-reserved-days",
+        "type": "int"
+    },
+    {
+        "key": "schedule.max-movable-hot-peer-size",
+        "type": "int"
+    },
+    {
+        "key": "schedule.enable-diagnostic",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.enable-witness",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.slow-store-evicting-affected-store-ratio-threshold",
+        "type": "float"
+    },
+    {
+        "key": "schedule.store-limit-version",
+        "type": "string"
+    },
+    {
+        "key": "schedule.halt-scheduling",
+        "type": "bool"
+    },
+    {
+        "key": "schedule.patrol-region-worker-count",
+        "type": "int"
+    },
+    {
+        "key": "replication.max-replicas",
+        "type": "int"
+    },
+    {
+        "key": "replication.location-labels",
+        "type": "json"
+    },
+    {
+        "key": "replication.strictly-match-label",
+        "type": "bool"
+    },
+    {
+        "key": "replication.enable-placement-rules",
+        "type": "bool"
+    },
+    {
+        "key": "replication.enable-placement-rules-cache",
+        "type": "bool"
+    },
+    {
+        "key": "replication.isolation-level",
+        "type": "string"
+    },
+    {
+        "key": "pd-server.use-region-storage",
+        "type": "bool"
+    },
+    {
+        "key": "pd-server.max-gap-reset-ts",
+        "type": "int"
+    },
+    {
+        "key": "pd-server.key-type",
+        "type": "string"
+    },
+    {
+        "key": "pd-server.runtime-services",
+        "type": "json"
+    },
+    {
+        "key": "pd-server.metric-storage",
+        "type": "string"
+    },
+    {
+        "key": "pd-server.dashboard-address",
+        "type": "string"
+    },
+    {
+        "key": "pd-server.flow-round-by-digit",
+        "type": "int"
+    },
+    {
+        "key": "pd-server.min-resolved-ts-persistence-interval",
+        "type": "int"
+    },
+    {
+        "key": "pd-server.server-memory-limit",
+        "type": "float"
+    },
+    {
+        "key": "pd-server.server-memory-limit-gc-trigger",
+        "type": "float"
+    },
+    {
+        "key": "pd-server.enable-gogc-tuner",
+        "type": "bool"
+    },
+    {
+        "key": "pd-server.gc-tuner-threshold",
+        "type": "float"
+    },
+    {
+        "key": "pd-server.block-safe-point-v1",
+        "type": "bool"
+    },
+    {
+        "key": "labels",
+        "type": "json"
+    },
+    {
+        "key": "quota-backend-bytes",
+        "type": "int"
+    },
+    {
+        "key": "auto-compaction-mode",
+        "type": "string"
+    },
+    {
+        "key": "auto-compaction-retention",
+        "type": "string"
+    },
+    {
+        "key": "tick-interval",
+        "type": "int"
+    },
+    {
+        "key": "election-interval",
+        "type": "int"
+    },
+    {
+        "key": "enable-prevote",
+        "type": "bool"
+    },
+    {
+        "key": "max-request-bytes",
+        "type": "int"
+    },
+    {
+        "key": "security.cacert-path",
+        "type": "string"
+    },
+    {
+        "key": "security.cert-path",
+        "type": "string"
+    },
+    {
+        "key": "security.key-path",
+        "type": "string"
+    },
+    {
+        "key": "security.cert-allowed-cn",
+        "type": "json"
+    },
+    {
+        "key": "security.redact-info-log",
+        "type": "int"
+    },
+    {
+        "key": "security.encryption.data-encryption-method",
+        "type": "string"
+    },
+    {
+        "key": "security.encryption.data-key-rotation-period",
+        "type": "int"
+    },
+    {
+        "key": "security.encryption.master-key.type",
+        "type": "string"
+    },
+    {
+        "key": "security.encryption.master-key.key-id",
+        "type": "string"
+    },
+    {
+        "key": "security.encryption.master-key.region",
+        "type": "string"
+    },
+    {
+        "key": "security.encryption.master-key.endpoint",
+        "type": "string"
+    },
+    {
+        "key": "security.encryption.master-key.path",
+        "type": "string"
+    },
+    {
+        "key": "label-property",
+        "type": "json"
+    },
+    {
+        "key": "dashboard.tidb-cacert-path",
+        "type": "string"
+    },
+    {
+        "key": "dashboard.tidb-cert-path",
+        "type": "string"
+    },
+    {
+        "key": "dashboard.tidb-key-path",
+        "type": "string"
+    },
+    {
+        "key": "dashboard.public-path-prefix",
+        "type": "string"
+    },
+    {
+        "key": "dashboard.internal-proxy",
+        "type": "bool"
+    },
+    {
+        "key": "dashboard.enable-telemetry",
+        "type": "bool"
+    },
+    {
+        "key": "dashboard.enable-experimental",
+        "type": "bool"
+    },
+    {
+        "key": "dashboard.disable-custom-prom-addr",
+        "type": "bool"
+    },
+    {
+        "key": "replication-mode.replication-mode",
+        "type": "string"
+    },
+    {
+        "key": "replication-mode.dr-auto-sync.label-key",
+        "type": "string"
+    },
+    {
+        "key": "replication-mode.dr-auto-sync.primary",
+        "type": "string"
+    },
+    {
+        "key": "replication-mode.dr-auto-sync.dr",
+        "type": "string"
+    },
+    {
+        "key": "replication-mode.dr-auto-sync.primary-replicas",
+        "type": "int"
+    },
+    {
+        "key": "replication-mode.dr-auto-sync.dr-replicas",
+        "type": "int"
+    },
+    {
+        "key": "replication-mode.dr-auto-sync.wait-store-timeout",
+        "type": "int"
+    },
+    {
+        "key": "replication-mode.dr-auto-sync.wait-recover-timeout",
+        "type": "int"
+    },
+    {
+        "key": "replication-mode.dr-auto-sync.pause-region-split",
+        "type": "bool"
+    },
+    {
+        "key": "keyspace.pre-alloc",
+        "type": "json"
+    },
+    {
+        "key": "keyspace.wait-region-split",
+        "type": "bool"
+    },
+    {
+        "key": "keyspace.wait-region-split-timeout",
+        "type": "int"
+    },
+    {
+        "key": "keyspace.check-region-split-interval",
+        "type": "int"
+    },
+    {
+        "key": "micro-service.enable-scheduling-fallback",
+        "type": "bool"
+    },
+    {
+        "key": "controller.degraded-mode-wait-duration",
+        "type": "int"
+    },
+    {
+        "key": "controller.ltb-max-wait-duration",
+        "type": "int"
+    },
+    {
+        "key": "controller.ltb-token-rpc-max-delay",
+        "type": "int"
+    },
+    {
+        "key": "controller.request-unit.read-base-cost",
+        "type": "float"
+    },
+    {
+        "key": "controller.request-unit.read-per-batch-base-cost",
+        "type": "float"
+    },
+    {
+        "key": "controller.request-unit.read-cost-per-byte",
+        "type": "float"
+    },
+    {
+        "key": "controller.request-unit.write-base-cost",
+        "type": "float"
+    },
+    {
+        "key": "controller.request-unit.write-per-batch-base-cost",
+        "type": "float"
+    },
+    {
+        "key": "controller.request-unit.write-cost-per-byte",
+        "type": "float"
+    },
+    {
+        "key": "controller.request-unit.read-cpu-ms-cost",
+        "type": "float"
+    },
+    {
+        "key": "controller.enable-controller-trace-log",
+        "type": "bool"
+    }
+]
