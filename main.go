@@ -11,27 +11,43 @@ import (
 
 func main() {
 	test := TestConfig{}
-	for _, param := range List(test) {
+	for _, param := range ParseTomlConfig(test) {
 		fmt.Printf("Type: %s\tKey: %s\n", param.Type, param.Key)
 	}
 	tidb := tidbcfg.Config{}
 	fmt.Println("TiDB config:")
-	for _, param := range List(tidb) {
+	for _, param := range ParseTomlConfig(tidb) {
 		fmt.Printf("Type: %s\tKey: %s\n", param.Type, param.Key)
 	}
 
 	lightning := lightningcfg.Config{}
 	fmt.Println("\nLightning config:")
-	for _, param := range List(lightning) {
+	for _, param := range ParseTomlConfig(lightning) {
 		fmt.Printf("Type: %s\tKey: %s\n", param.Type, param.Key)
 	}
 	pd := pdcfg.NewConfig()
 	fmt.Println("\nPD config:")
-	for _, param := range List(pd) {
+	for _, param := range ParseTomlConfig(pd) {
 		fmt.Printf("Type: %s\tKey: %s\n", param.Type, param.Key)
 	}
 }
-func List(input interface{}) []Param {
+
+func ListTiDBConfig() []Param {
+	tidb := tidbcfg.Config{}
+	return ParseTomlConfig(tidb)
+}
+
+func ListLightningConfig() []Param {
+	lightning := lightningcfg.Config{}
+	return ParseTomlConfig(lightning)
+}
+
+func ListPDConfig() []Param {
+	pd := pdcfg.NewConfig()
+	return ParseTomlConfig(pd)
+}
+
+func ParseTomlConfig(input interface{}) []Param {
 	var r func(reflect.Value, string) []Param
 	r = func(reflectV reflect.Value, path string) (result []Param) {
 		switch reflectV.Type().Name() {
