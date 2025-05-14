@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"os"
 	"reflect"
 
 	tidbcfg "github.com/pingcap/tidb/pkg/config"
@@ -14,22 +16,24 @@ func main() {
 	for _, param := range ParseTomlConfig(test) {
 		fmt.Printf("Type: %s\tKey: %s\n", param.Type, param.Key)
 	}
-	tidb := tidbcfg.Config{}
-	fmt.Println("TiDB config:")
-	for _, param := range ParseTomlConfig(tidb) {
-		fmt.Printf("Type: %s\tKey: %s\n", param.Type, param.Key)
-	}
 
-	lightning := lightningcfg.Config{}
-	fmt.Println("\nLightning config:")
-	for _, param := range ParseTomlConfig(lightning) {
-		fmt.Printf("Type: %s\tKey: %s\n", param.Type, param.Key)
+	tidbJSON, err := json.MarshalIndent(ParseTomlConfig(tidbcfg.Config{}), "", "    ")
+	if err != nil {
+		panic(err)
 	}
-	pd := pdcfg.NewConfig()
-	fmt.Println("\nPD config:")
-	for _, param := range ParseTomlConfig(pd) {
-		fmt.Printf("Type: %s\tKey: %s\n", param.Type, param.Key)
+	os.WriteFile("tidb.json", tidbJSON, 0644)
+
+	lightningJSON, err := json.MarshalIndent(ParseTomlConfig(lightningcfg.Config{}), "", "    ")
+	if err != nil {
+		panic(err)
 	}
+	os.WriteFile("tidb-lightning.json", lightningJSON, 0644)
+
+	pdJSON, err := json.MarshalIndent(ParseTomlConfig(pdcfg.NewConfig()), "", "    ")
+	if err != nil {
+		panic(err)
+	}
+	os.WriteFile("pd.json", pdJSON, 0644)
 }
 
 func ListTiDBConfig() []Param {
@@ -66,7 +70,7 @@ func ParseTomlConfig(input interface{}) []Param {
 					if reflectV.Type().Field(i).Anonymous {
 						// do nothing to passthrough to the child field
 					} else {
-						fmt.Println("ignore no tag field: "+path+" "+reflectV.Type().Field(i).Name)
+						fmt.Println("ignore no tag field: " + path + " " + reflectV.Type().Field(i).Name)
 						continue
 					}
 				case "-":
@@ -105,8 +109,8 @@ func ParseTomlConfig(input interface{}) []Param {
 }
 
 type Param struct {
-	Key  string
-	Type string
+	Key  string `json:"key"`
+	Type string `json:"type"`
 }
 
 type TestConfig struct {
