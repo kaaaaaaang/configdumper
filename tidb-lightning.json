@@ -381,15 +381,15 @@
     },
     {
         "key": "cron.switch-mode",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "cron.log-progress",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "cron.check-disk-quota",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "routes",

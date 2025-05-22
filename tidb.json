@@ -533,7 +533,7 @@
     },
     {
         "key": "opentracing.sampler.sampling-refresh-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "opentracing.reporter.queue-size",
@@ -541,7 +541,7 @@
     },
     {
         "key": "opentracing.reporter.buffer-flush-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "opentracing.reporter.log-spans",
@@ -609,11 +609,11 @@
     },
     {
         "key": "tikv-client.async-commit.safe-window",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tikv-client.async-commit.allowed-clock-drift",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tikv-client.batch-policy",
@@ -629,7 +629,7 @@
     },
     {
         "key": "tikv-client.max-batch-wait-time",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tikv-client.batch-wait-size",
@@ -669,7 +669,7 @@
     },
     {
         "key": "tikv-client.copr-req-timeout",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tikv-client.ttl-refreshed-txn-size",

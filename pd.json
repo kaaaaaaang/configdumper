@@ -113,15 +113,15 @@
     },
     {
         "key": "tso-proxy-recv-from-client-timeout",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tso-save-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tso-update-physical-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "enable-local-tso",
@@ -137,7 +137,7 @@
     },
     {
         "key": "metric.interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "schedule.max-snapshot-count",
@@ -157,11 +157,11 @@
     },
     {
         "key": "schedule.split-merge-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "schedule.switch-witness-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "schedule.enable-one-way-merge",
@@ -173,15 +173,15 @@
     },
     {
         "key": "schedule.patrol-region-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "schedule.max-store-down-time",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "schedule.max-store-preparing-time",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "schedule.leader-schedule-limit",
@@ -313,7 +313,7 @@
     },
     {
         "key": "schedule.hot-regions-write-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "schedule.hot-regions-reserved-days",
@@ -377,7 +377,7 @@
     },
     {
         "key": "pd-server.max-gap-reset-ts",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "pd-server.key-type",
@@ -401,7 +401,7 @@
     },
     {
         "key": "pd-server.min-resolved-ts-persistence-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "pd-server.server-memory-limit",
@@ -441,11 +441,11 @@
     },
     {
         "key": "tick-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "election-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "enable-prevote",
@@ -481,7 +481,7 @@
     },
     {
         "key": "security.encryption.data-key-rotation-period",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "security.encryption.master-key.type",
@@ -565,11 +565,11 @@
     },
     {
         "key": "replication-mode.dr-auto-sync.wait-store-timeout",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "replication-mode.dr-auto-sync.wait-recover-timeout",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "replication-mode.dr-auto-sync.pause-region-split",
@@ -585,11 +585,11 @@
     },
     {
         "key": "keyspace.wait-region-split-timeout",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "keyspace.check-region-split-interval",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "micro-service.enable-scheduling-fallback",
@@ -597,15 +597,15 @@
     },
     {
         "key": "controller.degraded-mode-wait-duration",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "controller.ltb-max-wait-duration",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "controller.ltb-token-rpc-max-delay",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "controller.request-unit.read-base-cost",
