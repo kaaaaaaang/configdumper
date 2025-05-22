@@ -11,6 +11,11 @@ import (
 	pdcfg "github.com/tikv/pd/server/config"
 )
 
+type MarshalText interface {
+	MarshalText() ([]byte, error)
+	UnmarshalText([]byte) error
+}
+
 func main() {
 	test := TestConfig{}
 	for _, param := range ParseTomlConfig(test) {
@@ -59,6 +64,14 @@ func ParseTomlConfig(input interface{}) []Param {
 			return []Param{{path, "bool"}}
 		case "Int64":
 			return []Param{{path, "number"}}
+		case "Duration":
+			return []Param{{path, "string"}}
+		default:
+			var textMarshalerType = reflect.TypeOf((*MarshalText)(nil)).Elem()
+			if reflectV.Type().Implements(textMarshalerType) ||
+				(reflect.PointerTo(reflectV.Type()).Implements(textMarshalerType)) {
+				panic(fmt.Sprintf("%s  <-- Implements MarshalText, please udate code to handler it", reflectV.Type().Name()))
+			}
 		}
 		switch reflectV.Kind() {
 		case reflect.Struct:
