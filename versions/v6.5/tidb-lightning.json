@@ -1,0 +1,358 @@
+[
+    {
+        "key": "lightning.table-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "lightning.index-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "lightning.region-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "lightning.io-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "lightning.check-requirements",
+        "type": "bool"
+    },
+    {
+        "key": "lightning.meta-schema-name",
+        "type": "string"
+    },
+    {
+        "key": "lightning.max-error.syntax",
+        "type": "number"
+    },
+    {
+        "key": "lightning.max-error.charset",
+        "type": "number"
+    },
+    {
+        "key": "lightning.max-error.type",
+        "type": "number"
+    },
+    {
+        "key": "lightning.max-error.conflict",
+        "type": "number"
+    },
+    {
+        "key": "lightning.task-info-schema-name",
+        "type": "string"
+    },
+    {
+        "key": "tidb.host",
+        "type": "string"
+    },
+    {
+        "key": "tidb.port",
+        "type": "int"
+    },
+    {
+        "key": "tidb.user",
+        "type": "string"
+    },
+    {
+        "key": "tidb.password",
+        "type": "string"
+    },
+    {
+        "key": "tidb.status-port",
+        "type": "int"
+    },
+    {
+        "key": "tidb.pd-addr",
+        "type": "string"
+    },
+    {
+        "key": "tidb.sql-mode",
+        "type": "string"
+    },
+    {
+        "key": "tidb.tls",
+        "type": "string"
+    },
+    {
+        "key": "tidb.security.ca-path",
+        "type": "string"
+    },
+    {
+        "key": "tidb.security.cert-path",
+        "type": "string"
+    },
+    {
+        "key": "tidb.security.key-path",
+        "type": "string"
+    },
+    {
+        "key": "tidb.security.redact-info-log",
+        "type": "bool"
+    },
+    {
+        "key": "tidb.max-allowed-packet",
+        "type": "int"
+    },
+    {
+        "key": "tidb.distsql-scan-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "tidb.build-stats-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "tidb.index-serial-scan-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "tidb.checksum-table-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "checkpoint.schema",
+        "type": "string"
+    },
+    {
+        "key": "checkpoint.dsn",
+        "type": "string"
+    },
+    {
+        "key": "checkpoint.driver",
+        "type": "string"
+    },
+    {
+        "key": "checkpoint.enable",
+        "type": "bool"
+    },
+    {
+        "key": "checkpoint.keep-after-success",
+        "type": "int"
+    },
+    {
+        "key": "mydumper.read-block-size",
+        "type": "int"
+    },
+    {
+        "key": "mydumper.batch-size",
+        "type": "int"
+    },
+    {
+        "key": "mydumper.batch-import-ratio",
+        "type": "float"
+    },
+    {
+        "key": "mydumper.source-id",
+        "type": "string"
+    },
+    {
+        "key": "mydumper.data-source-dir",
+        "type": "string"
+    },
+    {
+        "key": "mydumper.character-set",
+        "type": "string"
+    },
+    {
+        "key": "mydumper.csv.separator",
+        "type": "string"
+    },
+    {
+        "key": "mydumper.csv.delimiter",
+        "type": "string"
+    },
+    {
+        "key": "mydumper.csv.terminator",
+        "type": "string"
+    },
+    {
+        "key": "mydumper.csv.null",
+        "type": "string"
+    },
+    {
+        "key": "mydumper.csv.header",
+        "type": "bool"
+    },
+    {
+        "key": "mydumper.csv.trim-last-separator",
+        "type": "bool"
+    },
+    {
+        "key": "mydumper.csv.not-null",
+        "type": "bool"
+    },
+    {
+        "key": "mydumper.csv.backslash-escape",
+        "type": "bool"
+    },
+    {
+        "key": "mydumper.max-region-size",
+        "type": "int"
+    },
+    {
+        "key": "mydumper.filter",
+        "type": "json"
+    },
+    {
+        "key": "mydumper.files",
+        "type": "json"
+    },
+    {
+        "key": "mydumper.no-schema",
+        "type": "bool"
+    },
+    {
+        "key": "mydumper.case-sensitive",
+        "type": "bool"
+    },
+    {
+        "key": "mydumper.strict-format",
+        "type": "bool"
+    },
+    {
+        "key": "mydumper.default-file-rules",
+        "type": "bool"
+    },
+    {
+        "key": "mydumper.ignore-data-columns",
+        "type": "json"
+    },
+    {
+        "key": "mydumper.data-character-set",
+        "type": "string"
+    },
+    {
+        "key": "mydumper.data-invalid-char-replace",
+        "type": "string"
+    },
+    {
+        "key": "tikv-importer.addr",
+        "type": "string"
+    },
+    {
+        "key": "tikv-importer.backend",
+        "type": "string"
+    },
+    {
+        "key": "tikv-importer.on-duplicate",
+        "type": "string"
+    },
+    {
+        "key": "tikv-importer.max-kv-pairs",
+        "type": "int"
+    },
+    {
+        "key": "tikv-importer.send-kv-pairs",
+        "type": "int"
+    },
+    {
+        "key": "tikv-importer.region-split-size",
+        "type": "int"
+    },
+    {
+        "key": "tikv-importer.region-split-keys",
+        "type": "int"
+    },
+    {
+        "key": "tikv-importer.sorted-kv-dir",
+        "type": "string"
+    },
+    {
+        "key": "tikv-importer.disk-quota",
+        "type": "int"
+    },
+    {
+        "key": "tikv-importer.range-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "tikv-importer.duplicate-resolution",
+        "type": "int"
+    },
+    {
+        "key": "tikv-importer.incremental-import",
+        "type": "bool"
+    },
+    {
+        "key": "tikv-importer.engine-mem-cache-size",
+        "type": "int"
+    },
+    {
+        "key": "tikv-importer.local-writer-mem-cache-size",
+        "type": "int"
+    },
+    {
+        "key": "tikv-importer.store-write-bwlimit",
+        "type": "int"
+    },
+    {
+        "key": "post-restore.checksum",
+        "type": "int"
+    },
+    {
+        "key": "post-restore.analyze",
+        "type": "int"
+    },
+    {
+        "key": "post-restore.level-1-compact",
+        "type": "bool"
+    },
+    {
+        "key": "post-restore.post-process-at-last",
+        "type": "bool"
+    },
+    {
+        "key": "post-restore.compact",
+        "type": "bool"
+    },
+    {
+        "key": "cron.switch-mode",
+        "type": "string"
+    },
+    {
+        "key": "cron.log-progress",
+        "type": "string"
+    },
+    {
+        "key": "cron.check-disk-quota",
+        "type": "string"
+    },
+    {
+        "key": "routes",
+        "type": "json"
+    },
+    {
+        "key": "security.ca-path",
+        "type": "string"
+    },
+    {
+        "key": "security.cert-path",
+        "type": "string"
+    },
+    {
+        "key": "security.key-path",
+        "type": "string"
+    },
+    {
+        "key": "security.redact-info-log",
+        "type": "bool"
+    },
+    {
+        "key": "black-white-list.do-tables",
+        "type": "json"
+    },
+    {
+        "key": "black-white-list.do-dbs",
+        "type": "json"
+    },
+    {
+        "key": "black-white-list.ignore-tables",
+        "type": "json"
+    },
+    {
+        "key": "black-white-list.ignore-dbs",
+        "type": "json"
+    }
+]

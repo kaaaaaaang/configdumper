@@ -1,0 +1,890 @@
+[
+    {
+        "key": "host",
+        "type": "string"
+    },
+    {
+        "key": "advertise-address",
+        "type": "string"
+    },
+    {
+        "key": "port",
+        "type": "int"
+    },
+    {
+        "key": "cors",
+        "type": "string"
+    },
+    {
+        "key": "store",
+        "type": "string"
+    },
+    {
+        "key": "path",
+        "type": "string"
+    },
+    {
+        "key": "socket",
+        "type": "string"
+    },
+    {
+        "key": "lease",
+        "type": "string"
+    },
+    {
+        "key": "split-table",
+        "type": "bool"
+    },
+    {
+        "key": "token-limit",
+        "type": "int"
+    },
+    {
+        "key": "temp-dir",
+        "type": "string"
+    },
+    {
+        "key": "tmp-storage-path",
+        "type": "string"
+    },
+    {
+        "key": "tmp-storage-quota",
+        "type": "int"
+    },
+    {
+        "key": "server-version",
+        "type": "string"
+    },
+    {
+        "key": "version-comment",
+        "type": "string"
+    },
+    {
+        "key": "tidb-edition",
+        "type": "string"
+    },
+    {
+        "key": "tidb-release-version",
+        "type": "string"
+    },
+    {
+        "key": "keyspace-name",
+        "type": "string"
+    },
+    {
+        "key": "log.level",
+        "type": "string"
+    },
+    {
+        "key": "log.format",
+        "type": "string"
+    },
+    {
+        "key": "log.disable-timestamp",
+        "type": "bool"
+    },
+    {
+        "key": "log.enable-timestamp",
+        "type": "bool"
+    },
+    {
+        "key": "log.disable-error-stack",
+        "type": "bool"
+    },
+    {
+        "key": "log.enable-error-stack",
+        "type": "bool"
+    },
+    {
+        "key": "log.file.filename",
+        "type": "string"
+    },
+    {
+        "key": "log.file.max-size",
+        "type": "int"
+    },
+    {
+        "key": "log.file.max-days",
+        "type": "int"
+    },
+    {
+        "key": "log.file.max-backups",
+        "type": "int"
+    },
+    {
+        "key": "log.slow-query-file",
+        "type": "string"
+    },
+    {
+        "key": "log.expensive-threshold",
+        "type": "int"
+    },
+    {
+        "key": "log.query-log-max-len",
+        "type": "int"
+    },
+    {
+        "key": "log.enable-slow-log",
+        "type": "bool"
+    },
+    {
+        "key": "log.slow-threshold",
+        "type": "int"
+    },
+    {
+        "key": "log.record-plan-in-slow-log",
+        "type": "int"
+    },
+    {
+        "key": "log.timeout",
+        "type": "int"
+    },
+    {
+        "key": "instance.tidb_general_log",
+        "type": "bool"
+    },
+    {
+        "key": "instance.tidb_pprof_sql_cpu",
+        "type": "bool"
+    },
+    {
+        "key": "instance.ddl_slow_threshold",
+        "type": "int"
+    },
+    {
+        "key": "instance.tidb_expensive_query_time_threshold",
+        "type": "int"
+    },
+    {
+        "key": "instance.tidb_stmt_summary_enable_persistent",
+        "type": "bool"
+    },
+    {
+        "key": "instance.tidb_stmt_summary_filename",
+        "type": "string"
+    },
+    {
+        "key": "instance.tidb_stmt_summary_file_max_days",
+        "type": "int"
+    },
+    {
+        "key": "instance.tidb_stmt_summary_file_max_size",
+        "type": "int"
+    },
+    {
+        "key": "instance.tidb_stmt_summary_file_max_backups",
+        "type": "int"
+    },
+    {
+        "key": "instance.tidb_enable_slow_log",
+        "type": "bool"
+    },
+    {
+        "key": "instance.tidb_slow_log_threshold",
+        "type": "int"
+    },
+    {
+        "key": "instance.tidb_record_plan_in_slow_log",
+        "type": "int"
+    },
+    {
+        "key": "instance.tidb_check_mb4_value_in_utf8",
+        "type": "bool"
+    },
+    {
+        "key": "instance.tidb_force_priority",
+        "type": "string"
+    },
+    {
+        "key": "instance.tidb_memory_usage_alarm_ratio",
+        "type": "float"
+    },
+    {
+        "key": "instance.tidb_enable_collect_execution_info",
+        "type": "bool"
+    },
+    {
+        "key": "instance.plugin_dir",
+        "type": "string"
+    },
+    {
+        "key": "instance.plugin_load",
+        "type": "string"
+    },
+    {
+        "key": "instance.max_connections",
+        "type": "int"
+    },
+    {
+        "key": "instance.tidb_enable_ddl",
+        "type": "bool"
+    },
+    {
+        "key": "instance.tidb_rc_read_check_ts",
+        "type": "bool"
+    },
+    {
+        "key": "security.skip-grant-table",
+        "type": "bool"
+    },
+    {
+        "key": "security.ssl-ca",
+        "type": "string"
+    },
+    {
+        "key": "security.ssl-cert",
+        "type": "string"
+    },
+    {
+        "key": "security.ssl-key",
+        "type": "string"
+    },
+    {
+        "key": "security.cluster-ssl-ca",
+        "type": "string"
+    },
+    {
+        "key": "security.cluster-ssl-cert",
+        "type": "string"
+    },
+    {
+        "key": "security.cluster-ssl-key",
+        "type": "string"
+    },
+    {
+        "key": "security.cluster-verify-cn",
+        "type": "json"
+    },
+    {
+        "key": "security.session-token-signing-cert",
+        "type": "string"
+    },
+    {
+        "key": "security.session-token-signing-key",
+        "type": "string"
+    },
+    {
+        "key": "security.spilled-file-encryption-method",
+        "type": "string"
+    },
+    {
+        "key": "security.enable-sem",
+        "type": "bool"
+    },
+    {
+        "key": "security.auto-tls",
+        "type": "bool"
+    },
+    {
+        "key": "security.tls-version",
+        "type": "string"
+    },
+    {
+        "key": "security.rsa-key-size",
+        "type": "int"
+    },
+    {
+        "key": "security.secure-bootstrap",
+        "type": "bool"
+    },
+    {
+        "key": "security.auth-token-jwks",
+        "type": "string"
+    },
+    {
+        "key": "security.auth-token-refresh-interval",
+        "type": "string"
+    },
+    {
+        "key": "security.disconnect-on-expired-password",
+        "type": "bool"
+    },
+    {
+        "key": "status.status-host",
+        "type": "string"
+    },
+    {
+        "key": "status.metrics-addr",
+        "type": "string"
+    },
+    {
+        "key": "status.status-port",
+        "type": "int"
+    },
+    {
+        "key": "status.metrics-interval",
+        "type": "int"
+    },
+    {
+        "key": "status.report-status",
+        "type": "bool"
+    },
+    {
+        "key": "status.record-db-qps",
+        "type": "bool"
+    },
+    {
+        "key": "status.record-db-label",
+        "type": "bool"
+    },
+    {
+        "key": "status.grpc-keepalive-time",
+        "type": "int"
+    },
+    {
+        "key": "status.grpc-keepalive-timeout",
+        "type": "int"
+    },
+    {
+        "key": "status.grpc-concurrent-streams",
+        "type": "int"
+    },
+    {
+        "key": "status.grpc-initial-window-size",
+        "type": "int"
+    },
+    {
+        "key": "status.grpc-max-send-msg-size",
+        "type": "int"
+    },
+    {
+        "key": "performance.max-procs",
+        "type": "int"
+    },
+    {
+        "key": "performance.max-memory",
+        "type": "int"
+    },
+    {
+        "key": "performance.server-memory-quota",
+        "type": "int"
+    },
+    {
+        "key": "performance.stats-lease",
+        "type": "string"
+    },
+    {
+        "key": "performance.stmt-count-limit",
+        "type": "int"
+    },
+    {
+        "key": "performance.pseudo-estimate-ratio",
+        "type": "float"
+    },
+    {
+        "key": "performance.bind-info-lease",
+        "type": "string"
+    },
+    {
+        "key": "performance.txn-entry-size-limit",
+        "type": "int"
+    },
+    {
+        "key": "performance.txn-total-size-limit",
+        "type": "int"
+    },
+    {
+        "key": "performance.tcp-keep-alive",
+        "type": "bool"
+    },
+    {
+        "key": "performance.tcp-no-delay",
+        "type": "bool"
+    },
+    {
+        "key": "performance.cross-join",
+        "type": "bool"
+    },
+    {
+        "key": "performance.distinct-agg-push-down",
+        "type": "bool"
+    },
+    {
+        "key": "performance.projection-push-down",
+        "type": "bool"
+    },
+    {
+        "key": "performance.max-txn-ttl",
+        "type": "int"
+    },
+    {
+        "key": "performance.index-usage-sync-lease",
+        "type": "string"
+    },
+    {
+        "key": "performance.plan-replayer-gc-lease",
+        "type": "string"
+    },
+    {
+        "key": "performance.gogc",
+        "type": "int"
+    },
+    {
+        "key": "performance.enforce-mpp",
+        "type": "bool"
+    },
+    {
+        "key": "performance.stats-load-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "performance.stats-load-queue-size",
+        "type": "int"
+    },
+    {
+        "key": "performance.analyze-partition-concurrency-quota",
+        "type": "int"
+    },
+    {
+        "key": "performance.plan-replayer-dump-worker-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "performance.enable-stats-cache-mem-quota",
+        "type": "bool"
+    },
+    {
+        "key": "performance.committer-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "performance.run-auto-analyze",
+        "type": "bool"
+    },
+    {
+        "key": "performance.force-priority",
+        "type": "string"
+    },
+    {
+        "key": "performance.memory-usage-alarm-ratio",
+        "type": "float"
+    },
+    {
+        "key": "performance.enable-load-fmsketch",
+        "type": "bool"
+    },
+    {
+        "key": "performance.lite-init-stats",
+        "type": "bool"
+    },
+    {
+        "key": "performance.force-init-stats",
+        "type": "bool"
+    },
+    {
+        "key": "prepared-plan-cache.enabled",
+        "type": "bool"
+    },
+    {
+        "key": "prepared-plan-cache.capacity",
+        "type": "int"
+    },
+    {
+        "key": "prepared-plan-cache.memory-guard-ratio",
+        "type": "float"
+    },
+    {
+        "key": "opentracing.enable",
+        "type": "bool"
+    },
+    {
+        "key": "opentracing.rpc-metrics",
+        "type": "bool"
+    },
+    {
+        "key": "opentracing.sampler.type",
+        "type": "string"
+    },
+    {
+        "key": "opentracing.sampler.param",
+        "type": "float"
+    },
+    {
+        "key": "opentracing.sampler.sampling-server-url",
+        "type": "string"
+    },
+    {
+        "key": "opentracing.sampler.max-operations",
+        "type": "int"
+    },
+    {
+        "key": "opentracing.sampler.sampling-refresh-interval",
+        "type": "string"
+    },
+    {
+        "key": "opentracing.reporter.queue-size",
+        "type": "int"
+    },
+    {
+        "key": "opentracing.reporter.buffer-flush-interval",
+        "type": "string"
+    },
+    {
+        "key": "opentracing.reporter.log-spans",
+        "type": "bool"
+    },
+    {
+        "key": "opentracing.reporter.local-agent-host-port",
+        "type": "string"
+    },
+    {
+        "key": "proxy-protocol.networks",
+        "type": "string"
+    },
+    {
+        "key": "proxy-protocol.header-timeout",
+        "type": "int"
+    },
+    {
+        "key": "proxy-protocol.fallbackable",
+        "type": "bool"
+    },
+    {
+        "key": "pd-client.pd-server-timeout",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.grpc-connection-count",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.grpc-keepalive-time",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.grpc-keepalive-timeout",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.grpc-compression-type",
+        "type": "string"
+    },
+    {
+        "key": "tikv-client.grpc-initial-window-size",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.grpc-initial-conn-window-size",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.commit-timeout",
+        "type": "string"
+    },
+    {
+        "key": "tikv-client.async-commit.keys-limit",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.async-commit.total-key-size-limit",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.async-commit.safe-window",
+        "type": "string"
+    },
+    {
+        "key": "tikv-client.async-commit.allowed-clock-drift",
+        "type": "string"
+    },
+    {
+        "key": "tikv-client.max-batch-size",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.overload-threshold",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.max-batch-wait-time",
+        "type": "string"
+    },
+    {
+        "key": "tikv-client.batch-wait-size",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.enable-chunk-rpc",
+        "type": "bool"
+    },
+    {
+        "key": "tikv-client.region-cache-ttl",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.store-limit",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.store-liveness-timeout",
+        "type": "string"
+    },
+    {
+        "key": "tikv-client.copr-cache.capacity-mb",
+        "type": "float"
+    },
+    {
+        "key": "tikv-client.copr-cache.admission-max-ranges",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.copr-cache.admission-max-result-mb",
+        "type": "float"
+    },
+    {
+        "key": "tikv-client.copr-cache.admission-min-process-ms",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.ttl-refreshed-txn-size",
+        "type": "int"
+    },
+    {
+        "key": "tikv-client.resolve-lock-lite-threshold",
+        "type": "int"
+    },
+    {
+        "key": "binlog.enable",
+        "type": "bool"
+    },
+    {
+        "key": "binlog.ignore-error",
+        "type": "bool"
+    },
+    {
+        "key": "binlog.write-timeout",
+        "type": "string"
+    },
+    {
+        "key": "binlog.binlog-socket",
+        "type": "string"
+    },
+    {
+        "key": "binlog.strategy",
+        "type": "string"
+    },
+    {
+        "key": "compatible-kill-query",
+        "type": "bool"
+    },
+    {
+        "key": "pessimistic-txn.max-retry-count",
+        "type": "int"
+    },
+    {
+        "key": "pessimistic-txn.deadlock-history-capacity",
+        "type": "int"
+    },
+    {
+        "key": "pessimistic-txn.deadlock-history-collect-retryable",
+        "type": "bool"
+    },
+    {
+        "key": "pessimistic-txn.pessimistic-auto-commit",
+        "type": "bool"
+    },
+    {
+        "key": "pessimistic-txn.constraint-check-in-place-pessimistic",
+        "type": "bool"
+    },
+    {
+        "key": "max-index-length",
+        "type": "int"
+    },
+    {
+        "key": "index-limit",
+        "type": "int"
+    },
+    {
+        "key": "table-column-count-limit",
+        "type": "int"
+    },
+    {
+        "key": "graceful-wait-before-shutdown",
+        "type": "int"
+    },
+    {
+        "key": "alter-primary-key",
+        "type": "bool"
+    },
+    {
+        "key": "treat-old-version-utf8-as-utf8mb4",
+        "type": "bool"
+    },
+    {
+        "key": "enable-table-lock",
+        "type": "bool"
+    },
+    {
+        "key": "delay-clean-table-lock",
+        "type": "int"
+    },
+    {
+        "key": "split-region-max-num",
+        "type": "int"
+    },
+    {
+        "key": "top-sql.receiver-address",
+        "type": "string"
+    },
+    {
+        "key": "repair-mode",
+        "type": "bool"
+    },
+    {
+        "key": "repair-table-list",
+        "type": "json"
+    },
+    {
+        "key": "isolation-read.engines",
+        "type": "json"
+    },
+    {
+        "key": "new_collations_enabled_on_first_bootstrap",
+        "type": "bool"
+    },
+    {
+        "key": "experimental.allow-expression-index",
+        "type": "bool"
+    },
+    {
+        "key": "experimental.enable-new-charset",
+        "type": "bool"
+    },
+    {
+        "key": "skip-register-to-dashboard",
+        "type": "bool"
+    },
+    {
+        "key": "enable-telemetry",
+        "type": "bool"
+    },
+    {
+        "key": "labels",
+        "type": "json"
+    },
+    {
+        "key": "enable-global-index",
+        "type": "bool"
+    },
+    {
+        "key": "deprecate-integer-display-length",
+        "type": "bool"
+    },
+    {
+        "key": "enable-enum-length-limit",
+        "type": "bool"
+    },
+    {
+        "key": "stores-refresh-interval",
+        "type": "int"
+    },
+    {
+        "key": "enable-tcp4-only",
+        "type": "bool"
+    },
+    {
+        "key": "enable-forwarding",
+        "type": "bool"
+    },
+    {
+        "key": "max-ballast-object-size",
+        "type": "int"
+    },
+    {
+        "key": "ballast-object-size",
+        "type": "int"
+    },
+    {
+        "key": "transaction-summary.transaction-summary-capacity",
+        "type": "int"
+    },
+    {
+        "key": "transaction-summary.transaction-id-digest-min-duration",
+        "type": "int"
+    },
+    {
+        "key": "enable-global-kill",
+        "type": "bool"
+    },
+    {
+        "key": "initialize-sql-file",
+        "type": "string"
+    },
+    {
+        "key": "enable-batch-dml",
+        "type": "bool"
+    },
+    {
+        "key": "mem-quota-query",
+        "type": "int"
+    },
+    {
+        "key": "oom-action",
+        "type": "string"
+    },
+    {
+        "key": "oom-use-tmp-storage",
+        "type": "bool"
+    },
+    {
+        "key": "check-mb4-value-in-utf8",
+        "type": "bool"
+    },
+    {
+        "key": "enable-collect-execution-info",
+        "type": "bool"
+    },
+    {
+        "key": "plugin.dir",
+        "type": "string"
+    },
+    {
+        "key": "plugin.load",
+        "type": "string"
+    },
+    {
+        "key": "max-server-connections",
+        "type": "int"
+    },
+    {
+        "key": "run-ddl",
+        "type": "bool"
+    },
+    {
+        "key": "disaggregated-tiflash",
+        "type": "bool"
+    },
+    {
+        "key": "autoscaler-type",
+        "type": "string"
+    },
+    {
+        "key": "autoscaler-addr",
+        "type": "string"
+    },
+    {
+        "key": "is-tiflashcompute-fixed-pool",
+        "type": "bool"
+    },
+    {
+        "key": "autoscaler-cluster-id",
+        "type": "string"
+    },
+    {
+        "key": "use-autoscaler",
+        "type": "bool"
+    },
+    {
+        "key": "tidb-max-reuse-chunk",
+        "type": "int"
+    },
+    {
+        "key": "tidb-max-reuse-column",
+        "type": "int"
+    },
+    {
+        "key": "tidb-enable-exit-check",
+        "type": "bool"
+    }
+]
