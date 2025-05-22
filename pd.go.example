@@ -1,0 +1,93 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+	"reflect"
+
+	pdcfg "github.com/tikv/pd/server/config"
+)
+
+func main() {
+	pdJSON, err := json.MarshalIndent(ParseTomlConfig(pdcfg.NewConfig()), "", "    ")
+	if err != nil {
+		panic(err)
+	}
+	os.WriteFile("pd.json", pdJSON, 0644)
+}
+
+type Param struct {
+	Key  string `json:"key"`
+	Type string `json:"type"`
+}
+
+type MarshalText interface {
+	MarshalText() ([]byte, error)
+	UnmarshalText([]byte) error
+}
+
+func ParseTomlConfig(input interface{}) []Param {
+	var r func(reflect.Value, string) []Param
+	r = func(reflectV reflect.Value, path string) (result []Param) {
+		switch reflectV.Type().Name() {
+		case "AtomicBool", "nullableBool":
+			return []Param{{path, "bool"}}
+		case "Int64":
+			return []Param{{path, "number"}}
+		case "Duration":
+			return []Param{{path, "string"}}
+		default:
+			var textMarshalerType = reflect.TypeOf((*MarshalText)(nil)).Elem()
+			if reflectV.Type().Implements(textMarshalerType) ||
+				(reflect.PointerTo(reflectV.Type()).Implements(textMarshalerType)) {
+				panic(fmt.Sprintf("%s  <-- Implements MarshalText, please udate code to handler it", reflectV.Type().Name()))
+			}
+		}
+		switch reflectV.Kind() {
+		case reflect.Struct:
+			for i := 0; i < reflectV.NumField(); i++ {
+				fullKey := path
+				paramName := reflectV.Type().Field(i).Tag.Get("toml")
+				switch paramName {
+				case "":
+					if reflectV.Type().Field(i).Anonymous {
+						// do nothing to passthrough to the child field
+					} else {
+						fmt.Println("ignore no tag field: " + path + " " + reflectV.Type().Field(i).Name)
+						continue
+					}
+				case "-":
+					continue
+				default:
+					if path != "" {
+						fullKey += "."
+					}
+					fullKey += paramName
+				}
+
+				result = append(result, r(reflectV.Field(i), fullKey)...)
+			}
+		case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64,
+			reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+			result = []Param{{path, "int"}}
+		case reflect.Float32, reflect.Float64:
+			result = []Param{{path, "float"}}
+		case reflect.String:
+			result = []Param{{path, "string"}}
+		case reflect.Bool:
+			result = []Param{{path, "bool"}}
+		case reflect.Slice, reflect.Map:
+			result = []Param{{path, "json"}}
+		case reflect.Interface:
+			result = append(result, r(reflectV.Elem(), path)...)
+		case reflect.Ptr:
+			result = append(result, r(reflect.Zero(reflectV.Type().Elem()), path)...)
+
+		default:
+			fmt.Println("Unknown type:", reflectV.Kind(), path)
+		}
+		return result
+	}
+	return r(reflect.ValueOf(&input).Elem(), "")
+}
