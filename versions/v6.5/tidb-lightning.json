@@ -129,15 +129,15 @@
     },
     {
         "key": "checkpoint.keep-after-success",
-        "type": "int"
+        "type": "unknown"
     },
     {
         "key": "mydumper.read-block-size",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "mydumper.batch-size",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "mydumper.batch-import-ratio",
@@ -189,7 +189,7 @@
     },
     {
         "key": "mydumper.max-region-size",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "mydumper.filter",
@@ -249,7 +249,7 @@
     },
     {
         "key": "tikv-importer.region-split-size",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tikv-importer.region-split-keys",
@@ -261,7 +261,7 @@
     },
     {
         "key": "tikv-importer.disk-quota",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tikv-importer.range-concurrency",
@@ -269,7 +269,7 @@
     },
     {
         "key": "tikv-importer.duplicate-resolution",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tikv-importer.incremental-import",
@@ -277,23 +277,23 @@
     },
     {
         "key": "tikv-importer.engine-mem-cache-size",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tikv-importer.local-writer-mem-cache-size",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "tikv-importer.store-write-bwlimit",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "post-restore.checksum",
-        "type": "int"
+        "type": "unknown"
     },
     {
         "key": "post-restore.analyze",
-        "type": "int"
+        "type": "unknown"
     },
     {
         "key": "post-restore.level-1-compact",

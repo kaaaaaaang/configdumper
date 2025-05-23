@@ -405,7 +405,7 @@
     },
     {
         "key": "quota-backend-bytes",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "auto-compaction-mode",

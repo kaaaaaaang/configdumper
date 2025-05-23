@@ -421,7 +421,7 @@
     },
     {
         "key": "quota-backend-bytes",
-        "type": "int"
+        "type": "string"
     },
     {
         "key": "auto-compaction-mode",
@@ -465,7 +465,7 @@
     },
     {
         "key": "security.redact-info-log",
-        "type": "int"
+        "type": "unknown"
     },
     {
         "key": "security.encryption.data-encryption-method",

@@ -11,9 +11,12 @@ import (
 	pdcfg "github.com/tikv/pd/server/config"
 )
 
-type MarshalText interface {
-	MarshalText() ([]byte, error)
+type UnmarshalText interface {
 	UnmarshalText([]byte) error
+}
+
+type UnmarshalTOML interface {
+	UnmarshalTOML(any) error
 }
 
 func main() {
@@ -60,17 +63,41 @@ func ParseTomlConfig(input interface{}) []Param {
 	var r func(reflect.Value, string) []Param
 	r = func(reflectV reflect.Value, path string) (result []Param) {
 		switch reflectV.Type().Name() {
+		// common
 		case "AtomicBool", "nullableBool":
 			return []Param{{path, "bool"}}
 		case "Int64":
 			return []Param{{path, "number"}}
 		case "Duration":
 			return []Param{{path, "string"}}
+		case "ByteSize":
+			return []Param{{path, "string"}}
+		// PD
+		case "RedactInfoLogType":
+			return []Param{{path, "unknown"}}
+		// lightning
+		case "MaxError":
+			// it is a struct, do nothing
+		case "CheckpointKeepStrategy":
+			return []Param{{path, "unknown"}}
+		case "StringOrStringSlice":
+			return []Param{{path, "json"}}
+		case "DuplicateResolutionAlgorithm":
+			return []Param{{path, "string"}}
+		case "CompressionType":
+			return []Param{{path, "string"}}
+		case "PostOpLevel":
+			// bool or string
+			return []Param{{path, "unknown"}}
 		default:
-			var textMarshalerType = reflect.TypeOf((*MarshalText)(nil)).Elem()
-			if reflectV.Type().Implements(textMarshalerType) ||
-				(reflect.PointerTo(reflectV.Type()).Implements(textMarshalerType)) {
-				panic(fmt.Sprintf("%s  <-- Implements MarshalText, please udate code to handler it", reflectV.Type().Name()))
+			var unmarshalTextType = reflect.TypeOf((*UnmarshalText)(nil)).Elem()
+			var unmarshalTOMLType = reflect.TypeOf((*UnmarshalTOML)(nil)).Elem()
+			if reflectV.Type().Implements(unmarshalTextType) ||
+				(reflect.PointerTo(reflectV.Type()).Implements(unmarshalTextType)) {
+				panic(fmt.Sprintf("%s  <-- Implements UnmarshalText, please udate code to handler it", reflectV.Type().Name()))
+			} else if reflectV.Type().Implements(unmarshalTOMLType) ||
+				(reflect.PointerTo(reflectV.Type()).Implements(unmarshalTOMLType)) {
+				panic(fmt.Sprintf("%s  <-- Implements unmarshalTOMLType, please udate code to handler it", reflectV.Type().Name()))
 			}
 		}
 		switch reflectV.Kind() {
