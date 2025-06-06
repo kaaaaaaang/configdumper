@@ -1,14 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"os"
 	"reflect"
-
-	tidbcfg "github.com/pingcap/tidb/pkg/config"
-	lightningcfg "github.com/pingcap/tidb/pkg/lightning/config"
-	pdcfg "github.com/tikv/pd/server/config"
+	"strings"
 )
 
 type UnmarshalText interface {
@@ -20,43 +18,18 @@ type UnmarshalTOML interface {
 }
 
 func main() {
-	test := TestConfig{}
-	for _, param := range ParseTomlConfig(test) {
-		fmt.Printf("Type: %s\tKey: %s\n", param.Type, param.Key)
+	// get tikv config info from stdin
+	var tikvConfigInfo []byte
+	if input, err := os.ReadFile("/dev/stdin"); err != nil {
+		panic(err)
+	} else {
+		tikvConfigInfo = input
 	}
-
-	tidbJSON, err := json.MarshalIndent(ParseTomlConfig(tidbcfg.Config{}), "", "    ")
+	tikvJSON, err := json.MarshalIndent(ParseTikvConfigInfo(tikvConfigInfo), "", "    ")
 	if err != nil {
 		panic(err)
 	}
-	os.WriteFile("tidb.json", tidbJSON, 0644)
-
-	lightningJSON, err := json.MarshalIndent(ParseTomlConfig(lightningcfg.Config{}), "", "    ")
-	if err != nil {
-		panic(err)
-	}
-	os.WriteFile("tidb-lightning.json", lightningJSON, 0644)
-
-	pdJSON, err := json.MarshalIndent(ParseTomlConfig(pdcfg.NewConfig()), "", "    ")
-	if err != nil {
-		panic(err)
-	}
-	os.WriteFile("pd.json", pdJSON, 0644)
-}
-
-func ListTiDBConfig() []Param {
-	tidb := tidbcfg.Config{}
-	return ParseTomlConfig(tidb)
-}
-
-func ListLightningConfig() []Param {
-	lightning := lightningcfg.Config{}
-	return ParseTomlConfig(lightning)
-}
-
-func ListPDConfig() []Param {
-	pd := pdcfg.NewConfig()
-	return ParseTomlConfig(pd)
+	os.WriteFile("/dev/stdout", tikvJSON, 0644)
 }
 
 func ParseTomlConfig(input interface{}) []Param {
@@ -65,30 +38,30 @@ func ParseTomlConfig(input interface{}) []Param {
 		switch reflectV.Type().Name() {
 		// common
 		case "AtomicBool", "nullableBool":
-			return []Param{{path, "bool"}}
+			return []Param{{Key: path, Type: "bool"}}
 		case "Int64":
-			return []Param{{path, "number"}}
+			return []Param{{Key: path, Type: "number"}}
 		case "Duration":
-			return []Param{{path, "string"}}
+			return []Param{{Key: path, Type: "string"}}
 		case "ByteSize":
-			return []Param{{path, "string"}}
+			return []Param{{Key: path, Type: "string"}}
 		// PD
 		case "RedactInfoLogType":
-			return []Param{{path, "unknown"}}
+			return []Param{{Key: path, Type: "unknown"}}
 		// lightning
 		case "MaxError":
 			// it is a struct, do nothing
 		case "CheckpointKeepStrategy":
-			return []Param{{path, "unknown"}}
+			return []Param{{Key: path, Type: "unknown"}}
 		case "StringOrStringSlice":
-			return []Param{{path, "json"}}
+			return []Param{{Key: path, Type: "json"}}
 		case "DuplicateResolutionAlgorithm":
-			return []Param{{path, "string"}}
+			return []Param{{Key: path, Type: "string"}}
 		case "CompressionType":
-			return []Param{{path, "string"}}
+			return []Param{{Key: path, Type: "string"}}
 		case "PostOpLevel":
 			// bool or string
-			return []Param{{path, "unknown"}}
+			return []Param{{Key: path, Type: "unknown"}}
 		default:
 			var unmarshalTextType = reflect.TypeOf((*UnmarshalText)(nil)).Elem()
 			var unmarshalTOMLType = reflect.TypeOf((*UnmarshalTOML)(nil)).Elem()
@@ -126,15 +99,15 @@ func ParseTomlConfig(input interface{}) []Param {
 			}
 		case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64,
 			reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
-			result = []Param{{path, "int"}}
+			result = []Param{{Key: path, Type: "int"}}
 		case reflect.Float32, reflect.Float64:
-			result = []Param{{path, "float"}}
+			result = []Param{{Key: path, Type: "float"}}
 		case reflect.String:
-			result = []Param{{path, "string"}}
+			result = []Param{{Key: path, Type: "string"}}
 		case reflect.Bool:
-			result = []Param{{path, "bool"}}
+			result = []Param{{Key: path, Type: "bool"}}
 		case reflect.Slice, reflect.Map:
-			result = []Param{{path, "json"}}
+			result = []Param{{Key: path, Type: "json"}}
 		case reflect.Interface:
 			result = append(result, r(reflectV.Elem(), path)...)
 		case reflect.Ptr:
@@ -149,12 +122,52 @@ func ParseTomlConfig(input interface{}) []Param {
 }
 
 type Param struct {
-	Key  string `json:"key"`
-	Type string `json:"type"`
+	Key          string `json:"key"`
+	Type         string `json:"type"`
+	DefaultValue any    `json:"default_value,omitempty"`
 }
 
-type TestConfig struct {
-	Int int     `toml:"int"`
-	Str string  `toml:"str"`
-	Ptr *string `toml:"ptr"`
+type tikvConfigInfo struct {
+	Parameters []struct {
+		Name         string `json:"Name"`
+		DefaultValue any    `json:"DefaultValue"`
+	} `json:"Parameters"`
+}
+
+func ParseTikvConfigInfo(input []byte) []Param {
+	var configInfo tikvConfigInfo
+	decoder := json.NewDecoder(bytes.NewReader(input))
+	decoder.UseNumber()
+	if err := decoder.Decode(&configInfo); err != nil {
+		panic(fmt.Sprintf("Failed to decode Tikv config info: %v", err))
+	}
+
+	var params []Param
+	for _, param := range configInfo.Parameters {
+		ttype := "unknown" // Default type is unknown, as we don't have type information in the input
+		if param.DefaultValue != nil {
+			switch param.DefaultValue.(type) {
+			case string:
+				ttype = "string"
+			case json.Number:
+				if strings.Contains(param.DefaultValue.(json.Number).String(), ".") {
+					ttype = "float"
+				} else {
+					ttype = "int"
+				}
+			case bool:
+				ttype = "bool"
+			case []interface{}, map[string]interface{}:
+				ttype = "json"
+			default:
+				panic(fmt.Sprintf("Unknown type for parameter %s: %T", param.Name, param.DefaultValue))
+			}
+		}
+		params = append(params, Param{
+			Key:          param.Name,
+			Type:         ttype,
+			DefaultValue: param.DefaultValue,
+		})
+	}
+	return params
 }
