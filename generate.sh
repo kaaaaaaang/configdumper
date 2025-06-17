@@ -31,4 +31,12 @@ for ver in "${vers[@]}"; do
   cd ../../..
   cp ./tmp/${ver}/tidb/tidb.json ./versions/v$ver/tidb.json
   cp ./tmp/${ver}/tidb/tidb-lightning.json ./versions/v$ver/tidb-lightning.json
+
+  # tiflow repo
+  mkdir -p ./tmp/${ver} && mkdir -p ./versions/v${ver}
+  git clone --depth 1 -b release-$ver https://github.com/pingcap/tiflow.git ./tmp/${ver}/tiflow
+  cp ./tiflow.go.example ./tmp/${ver}/tiflow/main.go
+  cd ./tmp/${ver}/tiflow && go mod tidy && go run main.go
+  cd ../../..
+  cp ./tmp/${ver}/tiflow/ticdc.json ./versions/v$ver/ticdc.json
 done

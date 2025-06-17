@@ -1,0 +1,282 @@
+[
+    {
+        "key": "addr",
+        "type": "string"
+    },
+    {
+        "key": "advertise-addr",
+        "type": "string"
+    },
+    {
+        "key": "log-file",
+        "type": "string"
+    },
+    {
+        "key": "log-level",
+        "type": "string"
+    },
+    {
+        "key": "log.file.max-size",
+        "type": "int"
+    },
+    {
+        "key": "log.file.max-days",
+        "type": "int"
+    },
+    {
+        "key": "log.file.max-backups",
+        "type": "int"
+    },
+    {
+        "key": "log.error-output",
+        "type": "string"
+    },
+    {
+        "key": "data-dir",
+        "type": "string"
+    },
+    {
+        "key": "gc-ttl",
+        "type": "int"
+    },
+    {
+        "key": "tz",
+        "type": "string"
+    },
+    {
+        "key": "capture-session-ttl",
+        "type": "int"
+    },
+    {
+        "key": "owner-flush-interval",
+        "type": "string"
+    },
+    {
+        "key": "processor-flush-interval",
+        "type": "string"
+    },
+    {
+        "key": "sorter.sort-dir",
+        "type": "string"
+    },
+    {
+        "key": "sorter.cache-size-in-mb",
+        "type": "int"
+    },
+    {
+        "key": "sorter.max-memory-percentage",
+        "type": "int"
+    },
+    {
+        "key": "sorter.max-memory-consumption",
+        "type": "int"
+    },
+    {
+        "key": "sorter.num-workerpool-goroutine",
+        "type": "int"
+    },
+    {
+        "key": "sorter.num-concurrent-worker",
+        "type": "int"
+    },
+    {
+        "key": "sorter.chunk-size-limit",
+        "type": "int"
+    },
+    {
+        "key": "security.ca-path",
+        "type": "string"
+    },
+    {
+        "key": "security.cert-path",
+        "type": "string"
+    },
+    {
+        "key": "security.key-path",
+        "type": "string"
+    },
+    {
+        "key": "security.cert-allowed-cn",
+        "type": "json"
+    },
+    {
+        "key": "security.mtls",
+        "type": "bool"
+    },
+    {
+        "key": "security.client-user-required",
+        "type": "bool"
+    },
+    {
+        "key": "security.client-allowed-user",
+        "type": "json"
+    },
+    {
+        "key": "kv-client.enable-multiplexing",
+        "type": "bool"
+    },
+    {
+        "key": "kv-client.worker-concurrent",
+        "type": "int"
+    },
+    {
+        "key": "kv-client.grpc-stream-concurrent",
+        "type": "int"
+    },
+    {
+        "key": "kv-client.advance-interval-in-ms",
+        "type": "int"
+    },
+    {
+        "key": "kv-client.frontier-concurrent",
+        "type": "int"
+    },
+    {
+        "key": "kv-client.worker-pool-size",
+        "type": "int"
+    },
+    {
+        "key": "kv-client.region-scan-limit",
+        "type": "int"
+    },
+    {
+        "key": "kv-client.region-retry-duration",
+        "type": "string"
+    },
+    {
+        "key": "debug.db.count",
+        "type": "int"
+    },
+    {
+        "key": "debug.db.max-open-files",
+        "type": "int"
+    },
+    {
+        "key": "debug.db.block-size",
+        "type": "int"
+    },
+    {
+        "key": "debug.db.writer-buffer-size",
+        "type": "int"
+    },
+    {
+        "key": "debug.db.compression",
+        "type": "string"
+    },
+    {
+        "key": "debug.db.write-l0-pause-trigger",
+        "type": "int"
+    },
+    {
+        "key": "debug.db.compaction-l0-trigger",
+        "type": "int"
+    },
+    {
+        "key": "debug.messages.client-max-batch-interval",
+        "type": "string"
+    },
+    {
+        "key": "debug.messages.client-max-batch-size",
+        "type": "int"
+    },
+    {
+        "key": "debug.messages.client-max-batch-count",
+        "type": "int"
+    },
+    {
+        "key": "debug.messages.client-retry-rate-limit",
+        "type": "float"
+    },
+    {
+        "key": "debug.messages.server-max-pending-message-count",
+        "type": "int"
+    },
+    {
+        "key": "debug.messages.server-ack-interval",
+        "type": "string"
+    },
+    {
+        "key": "debug.messages.server-worker-pool-size",
+        "type": "int"
+    },
+    {
+        "key": "debug.messages.max-recv-msg-size",
+        "type": "int"
+    },
+    {
+        "key": "debug.messages.keep-alive-time",
+        "type": "string"
+    },
+    {
+        "key": "debug.messages.keep-alive-timeout",
+        "type": "string"
+    },
+    {
+        "key": "debug.scheduler.heartbeat-tick",
+        "type": "int"
+    },
+    {
+        "key": "debug.scheduler.collect-stats-tick",
+        "type": "int"
+    },
+    {
+        "key": "debug.scheduler.max-task-concurrency",
+        "type": "int"
+    },
+    {
+        "key": "debug.scheduler.check-balance-interval",
+        "type": "string"
+    },
+    {
+        "key": "debug.scheduler.add-table-batch-size",
+        "type": "int"
+    },
+    {
+        "key": "debug.cdc-v2.enable",
+        "type": "bool"
+    },
+    {
+        "key": "debug.cdc-v2.meta-store.uri",
+        "type": "string"
+    },
+    {
+        "key": "debug.cdc-v2.meta-store.ssl-ca",
+        "type": "string"
+    },
+    {
+        "key": "debug.cdc-v2.meta-store.ssl-cert",
+        "type": "string"
+    },
+    {
+        "key": "debug.cdc-v2.meta-store.ssl-key",
+        "type": "string"
+    },
+    {
+        "key": "debug.puller.enable-resolved-ts-stuck-detection",
+        "type": "bool"
+    },
+    {
+        "key": "debug.puller.resolved-ts-stuck-interval",
+        "type": "string"
+    },
+    {
+        "key": "debug.puller.log-region-details",
+        "type": "bool"
+    },
+    {
+        "key": "cluster-id",
+        "type": "string"
+    },
+    {
+        "key": "gc-tuner-memory-threshold",
+        "type": "int"
+    },
+    {
+        "key": "per-table-memory-quota",
+        "type": "int"
+    },
+    {
+        "key": "max-memory-percentage",
+        "type": "int"
+    }
+]
