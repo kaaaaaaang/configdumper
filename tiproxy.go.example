@@ -1,0 +1,104 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+	"reflect"
+
+	tiproxycfg "github.com/pingcap/tiproxy/lib/config"
+)
+
+func main() {
+	tiproxyJSON, err := json.MarshalIndent(ParseTomlConfig(tiproxycfg.NewConfig()), "", "    ")
+	if err != nil {
+		panic(err)
+	}
+	os.WriteFile("tiproxy.json", tiproxyJSON, 0644)
+}
+
+type Param struct {
+	Key  string `json:"key"`
+	Type string `json:"type"`
+}
+
+type UnmarshalText interface {
+	UnmarshalText([]byte) error
+}
+
+type UnmarshalTOML interface {
+	UnmarshalTOML(any) error
+}
+
+func ParseTomlConfig(input interface{}) []Param {
+	var r func(reflect.Value, string) []Param
+	r = func(reflectV reflect.Value, path string) (result []Param) {
+		switch reflectV.Type().Name() {
+
+		// common
+		case "AtomicBool", "nullableBool":
+			return []Param{{path, "bool"}}
+		case "Int64":
+			return []Param{{path, "number"}}
+		case "Duration":
+			return []Param{{path, "string"}}
+		case "ByteSize":
+			return []Param{{path, "string"}}
+		default:
+			var unmarshalTextType = reflect.TypeOf((*UnmarshalText)(nil)).Elem()
+			var unmarshalTOMLType = reflect.TypeOf((*UnmarshalTOML)(nil)).Elem()
+			if reflectV.Type().Implements(unmarshalTextType) ||
+				(reflect.PointerTo(reflectV.Type()).Implements(unmarshalTextType)) {
+				panic(fmt.Sprintf("%s  <-- Implements UnmarshalText, please update code to handler it", reflectV.Type().Name()))
+			} else if reflectV.Type().Implements(unmarshalTOMLType) ||
+				(reflect.PointerTo(reflectV.Type()).Implements(unmarshalTOMLType)) {
+				panic(fmt.Sprintf("%s  <-- Implements unmarshalTOMLType, please update code to handler it", reflectV.Type().Name()))
+			}
+		}
+		switch reflectV.Kind() {
+		case reflect.Struct:
+			for i := 0; i < reflectV.NumField(); i++ {
+				fullKey := path
+				paramName := reflectV.Type().Field(i).Tag.Get("toml")
+				switch paramName {
+				case "":
+					if reflectV.Type().Field(i).Anonymous {
+						// do nothing to passthrough to the child field
+					} else {
+						fmt.Println("ignore no tag field: " + path + " " + reflectV.Type().Field(i).Name)
+						continue
+					}
+				case "-":
+					continue
+				default:
+					if path != "" {
+						fullKey += "."
+					}
+					fullKey += paramName
+				}
+
+				result = append(result, r(reflectV.Field(i), fullKey)...)
+			}
+		case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64,
+			reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+			result = []Param{{path, "int"}}
+		case reflect.Float32, reflect.Float64:
+			result = []Param{{path, "float"}}
+		case reflect.String:
+			result = []Param{{path, "string"}}
+		case reflect.Bool:
+			result = []Param{{path, "bool"}}
+		case reflect.Slice, reflect.Map:
+			result = []Param{{path, "json"}}
+		case reflect.Interface:
+			result = append(result, r(reflectV.Elem(), path)...)
+		case reflect.Ptr:
+			result = append(result, r(reflect.Zero(reflectV.Type().Elem()), path)...)
+
+		default:
+			fmt.Println("Unknown type:", reflectV.Kind(), path)
+		}
+		return result
+	}
+	return r(reflect.ValueOf(&input).Elem(), "")
+}

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 mkdir -p ./tmp
 mkdir -p ./versions
 
