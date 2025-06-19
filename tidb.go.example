@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"reflect"
+	"strings"
 
 	tidbcfg "github.com/pingcap/tidb/pkg/config"
 	lightningcfg "github.com/pingcap/tidb/pkg/lightning/config"
@@ -79,7 +80,8 @@ func ParseTomlConfig(input interface{}) []Param {
 		case reflect.Struct:
 			for i := 0; i < reflectV.NumField(); i++ {
 				fullKey := path
-				paramName := reflectV.Type().Field(i).Tag.Get("toml")
+				tag := reflectV.Type().Field(i).Tag.Get("toml")
+				paramName := strings.Split(tag, ",")[0]
 				switch paramName {
 				case "":
 					if reflectV.Type().Field(i).Anonymous {

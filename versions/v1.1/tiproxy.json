@@ -1,278 +1,278 @@
 [
     {
-        "key": "proxy,omitempty.addr,omitempty",
+        "key": "proxy.addr",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.advertise-addr,omitempty",
+        "key": "proxy.advertise-addr",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.pd-addrs,omitempty",
+        "key": "proxy.pd-addrs",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.max-connections,omitempty",
+        "key": "proxy.max-connections",
         "type": "int"
     },
     {
-        "key": "proxy,omitempty.,inline.conn-buffer-size,omitempty",
+        "key": "proxy.conn-buffer-size",
         "type": "int"
     },
     {
-        "key": "proxy,omitempty.,inline.frontend-keepalive.enabled,omitempty",
+        "key": "proxy.frontend-keepalive.enabled",
         "type": "bool"
     },
     {
-        "key": "proxy,omitempty.,inline.frontend-keepalive.idle,omitempty",
+        "key": "proxy.frontend-keepalive.idle",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.frontend-keepalive.cnt,omitempty",
+        "key": "proxy.frontend-keepalive.cnt",
         "type": "int"
     },
     {
-        "key": "proxy,omitempty.,inline.frontend-keepalive.intvl,omitempty",
+        "key": "proxy.frontend-keepalive.intvl",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.frontend-keepalive.timeout,omitempty",
+        "key": "proxy.frontend-keepalive.timeout",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-healthy-keepalive.enabled,omitempty",
+        "key": "proxy.backend-healthy-keepalive.enabled",
         "type": "bool"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-healthy-keepalive.idle,omitempty",
+        "key": "proxy.backend-healthy-keepalive.idle",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-healthy-keepalive.cnt,omitempty",
+        "key": "proxy.backend-healthy-keepalive.cnt",
         "type": "int"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-healthy-keepalive.intvl,omitempty",
+        "key": "proxy.backend-healthy-keepalive.intvl",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-healthy-keepalive.timeout,omitempty",
+        "key": "proxy.backend-healthy-keepalive.timeout",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-unhealthy-keepalive.enabled,omitempty",
+        "key": "proxy.backend-unhealthy-keepalive.enabled",
         "type": "bool"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-unhealthy-keepalive.idle,omitempty",
+        "key": "proxy.backend-unhealthy-keepalive.idle",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-unhealthy-keepalive.cnt,omitempty",
+        "key": "proxy.backend-unhealthy-keepalive.cnt",
         "type": "int"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-unhealthy-keepalive.intvl,omitempty",
+        "key": "proxy.backend-unhealthy-keepalive.intvl",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.backend-unhealthy-keepalive.timeout,omitempty",
+        "key": "proxy.backend-unhealthy-keepalive.timeout",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.proxy-protocol,omitempty",
+        "key": "proxy.proxy-protocol",
         "type": "string"
     },
     {
-        "key": "proxy,omitempty.,inline.graceful-wait-before-shutdown,omitempty",
+        "key": "proxy.graceful-wait-before-shutdown",
         "type": "int"
     },
     {
-        "key": "proxy,omitempty.,inline.graceful-close-conn-timeout,omitempty",
+        "key": "proxy.graceful-close-conn-timeout",
         "type": "int"
     },
     {
-        "key": "api,omitempty.addr,omitempty",
+        "key": "api.addr",
         "type": "string"
     },
     {
-        "key": "api,omitempty.proxy-protocol,omitempty",
+        "key": "api.proxy-protocol",
         "type": "string"
     },
     {
-        "key": "advance,omitempty.ignore-wrong-namespace,omitempty",
+        "key": "advance.ignore-wrong-namespace",
         "type": "bool"
     },
     {
-        "key": "workdir,omitempty",
+        "key": "workdir",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-tls,omitempty.cert,omitempty",
+        "key": "security.server-tls.cert",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-tls,omitempty.key,omitempty",
+        "key": "security.server-tls.key",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-tls,omitempty.ca,omitempty",
+        "key": "security.server-tls.ca",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-tls,omitempty.min-tls-version,omitempty",
+        "key": "security.server-tls.min-tls-version",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-tls,omitempty.auto-certs,omitempty",
+        "key": "security.server-tls.auto-certs",
         "type": "bool"
     },
     {
-        "key": "security,omitempty.server-tls,omitempty.rsa-key-size,omitempty",
+        "key": "security.server-tls.rsa-key-size",
         "type": "int"
     },
     {
-        "key": "security,omitempty.server-tls,omitempty.autocert-expire-duration,omitempty",
+        "key": "security.server-tls.autocert-expire-duration",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-tls,omitempty.skip-ca,omitempty",
+        "key": "security.server-tls.skip-ca",
         "type": "bool"
     },
     {
-        "key": "security,omitempty.server-http-tls,omitempty.cert,omitempty",
+        "key": "security.server-http-tls.cert",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-http-tls,omitempty.key,omitempty",
+        "key": "security.server-http-tls.key",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-http-tls,omitempty.ca,omitempty",
+        "key": "security.server-http-tls.ca",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-http-tls,omitempty.min-tls-version,omitempty",
+        "key": "security.server-http-tls.min-tls-version",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-http-tls,omitempty.auto-certs,omitempty",
+        "key": "security.server-http-tls.auto-certs",
         "type": "bool"
     },
     {
-        "key": "security,omitempty.server-http-tls,omitempty.rsa-key-size,omitempty",
+        "key": "security.server-http-tls.rsa-key-size",
         "type": "int"
     },
     {
-        "key": "security,omitempty.server-http-tls,omitempty.autocert-expire-duration,omitempty",
+        "key": "security.server-http-tls.autocert-expire-duration",
         "type": "string"
     },
     {
-        "key": "security,omitempty.server-http-tls,omitempty.skip-ca,omitempty",
+        "key": "security.server-http-tls.skip-ca",
         "type": "bool"
     },
     {
-        "key": "security,omitempty.cluster-tls,omitempty.cert,omitempty",
+        "key": "security.cluster-tls.cert",
         "type": "string"
     },
     {
-        "key": "security,omitempty.cluster-tls,omitempty.key,omitempty",
+        "key": "security.cluster-tls.key",
         "type": "string"
     },
     {
-        "key": "security,omitempty.cluster-tls,omitempty.ca,omitempty",
+        "key": "security.cluster-tls.ca",
         "type": "string"
     },
     {
-        "key": "security,omitempty.cluster-tls,omitempty.min-tls-version,omitempty",
+        "key": "security.cluster-tls.min-tls-version",
         "type": "string"
     },
     {
-        "key": "security,omitempty.cluster-tls,omitempty.auto-certs,omitempty",
+        "key": "security.cluster-tls.auto-certs",
         "type": "bool"
     },
     {
-        "key": "security,omitempty.cluster-tls,omitempty.rsa-key-size,omitempty",
+        "key": "security.cluster-tls.rsa-key-size",
         "type": "int"
     },
     {
-        "key": "security,omitempty.cluster-tls,omitempty.autocert-expire-duration,omitempty",
+        "key": "security.cluster-tls.autocert-expire-duration",
         "type": "string"
     },
     {
-        "key": "security,omitempty.cluster-tls,omitempty.skip-ca,omitempty",
+        "key": "security.cluster-tls.skip-ca",
         "type": "bool"
     },
     {
-        "key": "security,omitempty.sql-tls,omitempty.cert,omitempty",
+        "key": "security.sql-tls.cert",
         "type": "string"
     },
     {
-        "key": "security,omitempty.sql-tls,omitempty.key,omitempty",
+        "key": "security.sql-tls.key",
         "type": "string"
     },
     {
-        "key": "security,omitempty.sql-tls,omitempty.ca,omitempty",
+        "key": "security.sql-tls.ca",
         "type": "string"
     },
     {
-        "key": "security,omitempty.sql-tls,omitempty.min-tls-version,omitempty",
+        "key": "security.sql-tls.min-tls-version",
         "type": "string"
     },
     {
-        "key": "security,omitempty.sql-tls,omitempty.auto-certs,omitempty",
+        "key": "security.sql-tls.auto-certs",
         "type": "bool"
     },
     {
-        "key": "security,omitempty.sql-tls,omitempty.rsa-key-size,omitempty",
+        "key": "security.sql-tls.rsa-key-size",
         "type": "int"
     },
     {
-        "key": "security,omitempty.sql-tls,omitempty.autocert-expire-duration,omitempty",
+        "key": "security.sql-tls.autocert-expire-duration",
         "type": "string"
     },
     {
-        "key": "security,omitempty.sql-tls,omitempty.skip-ca,omitempty",
+        "key": "security.sql-tls.skip-ca",
         "type": "bool"
     },
     {
-        "key": "security,omitempty.require-backend-tls,omitempty",
+        "key": "security.require-backend-tls",
         "type": "bool"
     },
     {
-        "key": "log,omitempty.encoder,omitempty",
+        "key": "log.encoder",
         "type": "string"
     },
     {
-        "key": "log,omitempty.,inline.level,omitempty",
+        "key": "log.level",
         "type": "string"
     },
     {
-        "key": "log,omitempty.,inline.log-file,omitempty.filename,omitempty",
+        "key": "log.log-file.filename",
         "type": "string"
     },
     {
-        "key": "log,omitempty.,inline.log-file,omitempty.max-size,omitempty",
+        "key": "log.log-file.max-size",
         "type": "int"
     },
     {
-        "key": "log,omitempty.,inline.log-file,omitempty.max-days,omitempty",
+        "key": "log.log-file.max-days",
         "type": "int"
     },
     {
-        "key": "log,omitempty.,inline.log-file,omitempty.max-backups,omitempty",
+        "key": "log.log-file.max-backups",
         "type": "int"
     },
     {
-        "key": "balance,omitempty.label-name,omitempty",
+        "key": "balance.label-name",
         "type": "string"
     },
     {
-        "key": "balance,omitempty.policy,omitempty",
+        "key": "balance.policy",
         "type": "string"
     },
     {
-        "key": "labels,omitempty",
+        "key": "labels",
         "type": "json"
     }
 ]
