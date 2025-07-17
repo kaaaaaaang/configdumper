@@ -1,286 +1,458 @@
 [
     {
         "key": "proxy.addr",
-        "type": "string"
+        "type": "string",
+        "default_value": "0.0.0.0:6000",
+        "hot_reloadable": false
     },
     {
         "key": "proxy.advertise-addr",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": false
     },
     {
         "key": "proxy.pd-addrs",
-        "type": "string"
+        "type": "string",
+        "default_value": "127.0.0.1:2379",
+        "hot_reloadable": false
     },
     {
         "key": "proxy.max-connections",
-        "type": "int"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.conn-buffer-size",
-        "type": "int"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.frontend-keepalive.enabled",
-        "type": "bool"
+        "type": "bool",
+        "default_value": true,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.frontend-keepalive.idle",
-        "type": "string"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.frontend-keepalive.cnt",
-        "type": "int"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.frontend-keepalive.intvl",
-        "type": "string"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.frontend-keepalive.timeout",
-        "type": "string"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-healthy-keepalive.enabled",
-        "type": "bool"
+        "type": "bool",
+        "default_value": true,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-healthy-keepalive.idle",
-        "type": "string"
+        "type": "int",
+        "default_value": 60000000000,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-healthy-keepalive.cnt",
-        "type": "int"
+        "type": "int",
+        "default_value": 5,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-healthy-keepalive.intvl",
-        "type": "string"
+        "type": "int",
+        "default_value": 3000000000,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-healthy-keepalive.timeout",
-        "type": "string"
+        "type": "int",
+        "default_value": 15000000000,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-unhealthy-keepalive.enabled",
-        "type": "bool"
+        "type": "bool",
+        "default_value": true,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-unhealthy-keepalive.idle",
-        "type": "string"
+        "type": "int",
+        "default_value": 10000000000,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-unhealthy-keepalive.cnt",
-        "type": "int"
+        "type": "int",
+        "default_value": 5,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-unhealthy-keepalive.intvl",
-        "type": "string"
+        "type": "int",
+        "default_value": 1000000000,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.backend-unhealthy-keepalive.timeout",
-        "type": "string"
+        "type": "int",
+        "default_value": 5000000000,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.proxy-protocol",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "proxy.graceful-wait-before-shutdown",
-        "type": "int"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "proxy.graceful-close-conn-timeout",
-        "type": "int"
+        "type": "int",
+        "default_value": 15,
+        "hot_reloadable": true
     },
     {
         "key": "api.addr",
-        "type": "string"
+        "type": "string",
+        "default_value": "0.0.0.0:3080",
+        "hot_reloadable": false
     },
     {
         "key": "api.proxy-protocol",
-        "type": "string"
-    },
-    {
-        "key": "advance.ignore-wrong-namespace",
-        "type": "bool"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": false
     },
     {
         "key": "workdir",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": false
     },
     {
         "key": "security.server-tls.cert",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.server-tls.key",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.server-tls.ca",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.server-tls.min-tls-version",
-        "type": "string"
+        "type": "string",
+        "default_value": "1.2",
+        "hot_reloadable": true
+    },
+    {
+        "key": "security.server-tls.cert-allowed-cn",
+        "type": "json",
+        "default_value": [],
+        "hot_reloadable": true
     },
     {
         "key": "security.server-tls.auto-certs",
-        "type": "bool"
+        "type": "bool",
+        "default_value": false,
+        "hot_reloadable": true
     },
     {
         "key": "security.server-tls.rsa-key-size",
-        "type": "int"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "security.server-tls.autocert-expire-duration",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.server-tls.skip-ca",
-        "type": "bool"
+        "type": "bool",
+        "default_value": false,
+        "hot_reloadable": true
     },
     {
         "key": "security.server-http-tls.cert",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.server-http-tls.key",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.server-http-tls.ca",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.server-http-tls.min-tls-version",
-        "type": "string"
+        "type": "string",
+        "default_value": "1.2",
+        "hot_reloadable": true
+    },
+    {
+        "key": "security.server-http-tls.cert-allowed-cn",
+        "type": "json",
+        "default_value": [],
+        "hot_reloadable": true
     },
     {
         "key": "security.server-http-tls.auto-certs",
-        "type": "bool"
+        "type": "bool",
+        "default_value": false,
+        "hot_reloadable": true
     },
     {
         "key": "security.server-http-tls.rsa-key-size",
-        "type": "int"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "security.server-http-tls.autocert-expire-duration",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.server-http-tls.skip-ca",
-        "type": "bool"
+        "type": "bool",
+        "default_value": false,
+        "hot_reloadable": true
     },
     {
         "key": "security.cluster-tls.cert",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.cluster-tls.key",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.cluster-tls.ca",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.cluster-tls.min-tls-version",
-        "type": "string"
+        "type": "string",
+        "default_value": "1.2",
+        "hot_reloadable": true
+    },
+    {
+        "key": "security.cluster-tls.cert-allowed-cn",
+        "type": "json",
+        "default_value": [],
+        "hot_reloadable": true
     },
     {
         "key": "security.cluster-tls.auto-certs",
-        "type": "bool"
+        "type": "bool",
+        "default_value": false,
+        "hot_reloadable": true
     },
     {
         "key": "security.cluster-tls.rsa-key-size",
-        "type": "int"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "security.cluster-tls.autocert-expire-duration",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.cluster-tls.skip-ca",
-        "type": "bool"
+        "type": "bool",
+        "default_value": false,
+        "hot_reloadable": true
     },
     {
         "key": "security.sql-tls.cert",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.sql-tls.key",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.sql-tls.ca",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.sql-tls.min-tls-version",
-        "type": "string"
+        "type": "string",
+        "default_value": "1.2",
+        "hot_reloadable": true
+    },
+    {
+        "key": "security.sql-tls.cert-allowed-cn",
+        "type": "json",
+        "default_value": [],
+        "hot_reloadable": true
     },
     {
         "key": "security.sql-tls.auto-certs",
-        "type": "bool"
+        "type": "bool",
+        "default_value": false,
+        "hot_reloadable": true
     },
     {
         "key": "security.sql-tls.rsa-key-size",
-        "type": "int"
+        "type": "int",
+        "default_value": 0,
+        "hot_reloadable": true
     },
     {
         "key": "security.sql-tls.autocert-expire-duration",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.sql-tls.skip-ca",
-        "type": "bool"
+        "type": "bool",
+        "default_value": false,
+        "hot_reloadable": true
+    },
+    {
+        "key": "security.encryption-key-path",
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "security.require-backend-tls",
-        "type": "bool"
+        "type": "bool",
+        "default_value": false,
+        "hot_reloadable": true
     },
     {
         "key": "log.encoder",
-        "type": "string"
+        "type": "string",
+        "default_value": "tidb",
+        "hot_reloadable": false
     },
     {
         "key": "log.level",
-        "type": "string"
+        "type": "string",
+        "default_value": "info",
+        "hot_reloadable": true
     },
     {
         "key": "log.log-file.filename",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "log.log-file.max-size",
-        "type": "int"
+        "type": "int",
+        "default_value": 300,
+        "hot_reloadable": true
     },
     {
         "key": "log.log-file.max-days",
-        "type": "int"
+        "type": "int",
+        "default_value": 3,
+        "hot_reloadable": true
     },
     {
         "key": "log.log-file.max-backups",
-        "type": "int"
+        "type": "int",
+        "default_value": 3,
+        "hot_reloadable": true
     },
     {
         "key": "balance.label-name",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": true
     },
     {
         "key": "balance.policy",
-        "type": "string"
+        "type": "string",
+        "default_value": "resource",
+        "hot_reloadable": true
     },
     {
         "key": "labels",
-        "type": "json"
+        "type": "json",
+        "default_value": {},
+        "hot_reloadable": true
     },
     {
         "key": "ha.virtual-ip",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": false
     },
     {
         "key": "ha.interface",
-        "type": "string"
+        "type": "string",
+        "default_value": "",
+        "hot_reloadable": false
+    },
+    {
+        "key": "enable-traffic-replay",
+        "type": "bool",
+        "default_value": true,
+        "hot_reloadable": true
     }
 ]
