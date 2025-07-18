@@ -180,12 +180,6 @@
         "hot_reloadable": true
     },
     {
-        "key": "security.server-tls.cert-allowed-cn",
-        "type": "json",
-        "default_value": [],
-        "hot_reloadable": true
-    },
-    {
         "key": "security.server-tls.auto-certs",
         "type": "bool",
         "default_value": false,
@@ -231,12 +225,6 @@
         "key": "security.server-http-tls.min-tls-version",
         "type": "string",
         "default_value": "1.2",
-        "hot_reloadable": true
-    },
-    {
-        "key": "security.server-http-tls.cert-allowed-cn",
-        "type": "json",
-        "default_value": [],
         "hot_reloadable": true
     },
     {
@@ -288,12 +276,6 @@
         "hot_reloadable": true
     },
     {
-        "key": "security.cluster-tls.cert-allowed-cn",
-        "type": "json",
-        "default_value": [],
-        "hot_reloadable": true
-    },
-    {
         "key": "security.cluster-tls.auto-certs",
         "type": "bool",
         "default_value": false,
@@ -342,12 +324,6 @@
         "hot_reloadable": true
     },
     {
-        "key": "security.sql-tls.cert-allowed-cn",
-        "type": "json",
-        "default_value": [],
-        "hot_reloadable": true
-    },
-    {
         "key": "security.sql-tls.auto-certs",
         "type": "bool",
         "default_value": false,
@@ -369,12 +345,6 @@
         "key": "security.sql-tls.skip-ca",
         "type": "bool",
         "default_value": false,
-        "hot_reloadable": true
-    },
-    {
-        "key": "security.encryption-key-path",
-        "type": "string",
-        "default_value": "",
         "hot_reloadable": true
     },
     {
